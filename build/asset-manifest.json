@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Finance-Tracker/static/css/main.58730521.chunk.css",
+    "main.js": "/Finance-Tracker/static/js/main.c1c662b8.chunk.js",
+    "main.js.map": "/Finance-Tracker/static/js/main.c1c662b8.chunk.js.map",
+    "runtime-main.js": "/Finance-Tracker/static/js/runtime-main.5e9de4ef.js",
+    "runtime-main.js.map": "/Finance-Tracker/static/js/runtime-main.5e9de4ef.js.map",
+    "static/js/2.006ab035.chunk.js": "/Finance-Tracker/static/js/2.006ab035.chunk.js",
+    "static/js/2.006ab035.chunk.js.map": "/Finance-Tracker/static/js/2.006ab035.chunk.js.map",
+    "index.html": "/Finance-Tracker/index.html",
+    "static/css/main.58730521.chunk.css.map": "/Finance-Tracker/static/css/main.58730521.chunk.css.map",
+    "static/js/2.006ab035.chunk.js.LICENSE.txt": "/Finance-Tracker/static/js/2.006ab035.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5e9de4ef.js",
+    "static/js/2.006ab035.chunk.js",
+    "static/css/main.58730521.chunk.css",
+    "static/js/main.c1c662b8.chunk.js"
+  ]
+}
