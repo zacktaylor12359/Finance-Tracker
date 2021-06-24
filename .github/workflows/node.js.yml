@@ -5,13 +5,20 @@ name: repo CI
 
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - master
   pull_request:
-    branches: [ master ]
+    branches: 
+      - master
+      
+env:
+  user_name: 'zacktaylor12359'
+  user_email: 'zataylor@wayne.edu'
+  github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+  repository: ${{ github.repository }}
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -27,16 +34,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
    
     - name: Install dependencies
-      run: npm install
-
-    - name: Run the tests and generate coverage report
-      run: npm test -- --coverage
-
-    - name: Build
-      run: npm run build
-      
-    - name: Codecov
-      uses: codecov/codecov-action@v1.5.2
+      run: npm ci
 
     - name: Deploy
       run: |
@@ -44,8 +42,3 @@ jobs:
         git config --global user.email $user_email
         git remote set-url origin https://${github_token}@github.com/${repository}
         npm run deploy
-      env:
-        user_name: 'zacktaylor12359'
-        user_email: 'zataylor@wayne.edu'
-        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-        repository: ${{ github.repository }}
