@@ -1,0 +1,35 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: repo CI
+
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+        branches:
+            - master
+
+env:
+    user_name: "zacktaylor12359"
+    user_email: "zataylor@wayne.edu"
+    github_token: ${{ secrets.ACTION_DEPLOY_ACCESS_TOKEN }}
+    repository: ${{ github.repository }}
+
+jobs:
+    publishSite:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@master
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build and Deploy
+              run: |
+                  git config --global user.name $user_name
+                  git config user.email $user_email
+                  git remote set-url origin https://${github_token}@github.com/${repository}
+                  npm run deploy
