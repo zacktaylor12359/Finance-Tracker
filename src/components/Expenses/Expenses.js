@@ -3,8 +3,8 @@ import './Expenses.css';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
-import ExpensesChart from './ExpensesChart';
-
+import MonthlyExpensesChart from './MonthlyExpensesChart';
+import YearlyExpensesChart from './YearlyExpensesChart';
 function Expenses(props) {
 	const [year, setYear] = useState('Show All');
 
@@ -28,7 +28,11 @@ function Expenses(props) {
 					onChangeFilterYear={filterChangeHandler}
 					defaultYear={year}
 				/>
-				<ExpensesChart expenses={filteredExpenses} />
+				{year === 'Show All' ? (
+					<YearlyExpensesChart expenses={filteredExpenses} />
+				) : (
+					<MonthlyExpensesChart expenses={filteredExpenses} />
+				)}
 				<ExpensesList
 					filterYear={year}
 					expenseInfo={filteredExpenses}
