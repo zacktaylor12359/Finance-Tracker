@@ -2,7 +2,7 @@ import Chart from '../Chart/Chart';
 
 const YearlyExpensesChart = (props) => {
 	const chartDataPoints = [];
-	for (const [i, expense] of props.expenses.entries()) {
+	for (const expense of props.expenses) {
 		const expenseYear = expense.date.getFullYear().toString();
 
 		let result = chartDataPoints.find((dataPoint) => {
